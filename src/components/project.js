@@ -119,12 +119,17 @@ function Project() {
 
         } else {
             return repos.map((repo, index) => {
+                console.log('repo', repo);
+                // repo.name contains the name, I want to replace '# repo_name' with an empty string
                 let formattedReadme = readme[index];
                 if (readme[index] != null) {
                     formattedReadme = readme[index]
-                        .replace(/\n/g, '<br>')
-                        .replace(/^# /, '');
-                }
+                        .replace(/\n/g, '<br>\n') // Replace '\n' with '<br>' while keeping the line breaks
+                        .replace(/^#.*$/gm, '') // Replace lines starting with '#' with an empty string
+                        .replace(/^.*$/, '') // Replace the first line with an empty string
+                        .replace(/\n\s+- /g, '&nbsp;&nbsp;- ') // Replace newline + spaces + hyphen with non-breaking spaces
+                        .replace(/^.*$/, '') // Replace the first line with an empty string;
+                }           
 
                 return (
                     <div className='project' key={repo.id}>
