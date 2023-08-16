@@ -1,38 +1,69 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 .about-container{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 5%;
+    margin-top: 3%;
+    background-color: wheat;
 }
 
 .project-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     margin-left: 7%;
     margin-right: 7%;
-    margin-top: 5%;
+    margin-top: 1%;
     padding: 2%;
-    background-color: whitesmoke;
-    border-radius: 25px;
-    filter: drop-shadow(5px 5px 20px #c0c0c0);
+   
+    
 }
 
 .project{
     display: flex;
     position: relative;
-    flex-direction: row;
-    margin-bottom: 7%;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right:5%;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    filter: drop-shadow(5px 5px 20px #c0c0c0);
+    padding: 3%;
 }
 .project img{
-    width: 300px;
+    max-width: 325px;
+    height: auto;
 }
-.project .left{
+.project .top{
     margin-right: 2%;
 }
-.project .right{
+.project .bot{
     margin-left: 2%;
-    margin-top: 7%;
+    margin-top: 4%;
 }
 .lastUpdated{
     position: absolute;
     bottom: 0%;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .project-container{
+        flex-direction: column;
+    }
+    .project{
+        align-items: center;
+        margin-top: 5%;
+        padding: 10%;
+    }
+    .project img {
+        max-width: 250px; /* Adjust image size for smaller screens */
+    }
+    .project .top,
+    .project .bot {
+        margin: 0; /* Remove margins for smaller screens */
+    }
 }
