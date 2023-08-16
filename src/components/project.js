@@ -16,6 +16,7 @@ function Project() {
     const [lastUpdated, setLastUpdated] = useState([]);
     const [readme, setReadme] = useState([]);
     const [imgUrls, setImgUrls] = useState([])
+    // add live links, add tags
 
     useEffect(() => {
         const fetchJson = async () => {
@@ -58,10 +59,10 @@ function Project() {
         fetchJson();
     }, []);
 
-    console.log('repos', repos);
-    console.log('lastUpdated', lastUpdated);
-    console.log('readme', readme);
-    console.log('img links', imgUrls);
+    // console.log('repos', repos);
+    // console.log('lastUpdated', lastUpdated);
+    // console.log('readme', readme);
+    // console.log('img links', imgUrls);
 
 const renderedProjects = repos.map((repo, index) => {
     // This doesnt load all the time, so replace doesnt work always and page breaks
@@ -72,8 +73,8 @@ const renderedProjects = repos.map((repo, index) => {
     return (
         <div className='project' key={repo.id}>
             <div className='left'>
-                <h1>{repo.name.charAt(0).toUpperCase() + repo.name.slice(1)}</h1>
                 <img src={imgUrls[index]} alt={`${repo.name} demo`} />
+                <h1>{repo.name.charAt(0).toUpperCase() + repo.name.slice(1)}</h1>
             </div>
             <div className='right'>
                 <p dangerouslySetInnerHTML={{ __html: formattedReadme }} />
