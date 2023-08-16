@@ -13,13 +13,11 @@ body{
 .project-container{
     display: flex;
     flex-direction: row;
-    align-items: center;
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 1%;
     padding: 2%;
-   
-    
+    justify-content: center;
 }
 
 .project{
