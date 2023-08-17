@@ -13,34 +13,45 @@ body{
 .project-container{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-left: 7%;
     margin-right: 7%;
-    margin-top: 1%;
+    
     padding: 2%;
-    justify-content: center;
 }
 
 .project{
     display: flex;
     position: relative;
     flex-direction: column;
-    margin-left: 5%;
-    margin-right:5%;
+    margin-left: 2%;
+    margin-right:2%;
+    margin-bottom: 3%;
     background-color: whitesmoke;
     border-radius: 25px;
     filter: drop-shadow(5px 5px 20px #c0c0c0);
     padding: 3%;
+    width: 325px;
 }
+.project-image-container{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+
 .project img{
+    display: flex;
+    justify-content: center;
     max-width: 325px;
     height: auto;
 }
+
 .project .top{
-    margin-right: 2%;
+    
 }
+
 .project .bot{
-    margin-left: 2%;
-    margin-top: 4%;
+    margin-left: 2%;    
 }
 .lastUpdated{
     position: absolute;
@@ -51,11 +62,13 @@ body{
 @media screen and (max-width: 768px) {
     .project-container{
         flex-direction: column;
+        margin-left: 0%;
+        margin-right: 0%;
     }
     .project{
-        align-items: center;
         margin-top: 5%;
         padding: 10%;
+        width: fit-content;
     }
     .project img {
         max-width: 250px; /* Adjust image size for smaller screens */

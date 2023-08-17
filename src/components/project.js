@@ -9,7 +9,7 @@ const GHtoken = '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';
 // https://raw.githubusercontent.com/sh-islam/(repo_name)/main/README.md
 
 
-const selectedRepos = ['dino-run', 'Rock-paper-scissors'];
+const selectedRepos = ['dino-run', 'Rock-paper-scissors', 'Trees'];
 
 function Project() {
     const [repos, setRepos] = useState([]);
@@ -134,12 +134,14 @@ function Project() {
                 return (
                     <div className='project' key={repo.id}>
                         <div className='top'>
-                            <img src={imgUrls[index]} alt={`${repo.name} demo`} />
+                            <div className='project-image-container'>
+                                <img className='project-image' src={imgUrls[index]} alt={`${repo.name} demo`} />
+                            </div>
                             <h1>{repo.name.charAt(0).toUpperCase() + repo.name.slice(1)}</h1>
                         </div>
                         <div className='bot'>
                             <p dangerouslySetInnerHTML={{ __html: formattedReadme }} />
-                            <p>Last updated: {lastUpdated[index]}</p>
+                            <p className='lastUpdated'>Last updated: {lastUpdated[index]}</p>
                         </div>
                     </div>
                 );
