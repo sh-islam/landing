@@ -17,7 +17,6 @@ body{
     justify-content: center;
     margin-left: 7%;
     margin-right: 7%;
-    
     padding: 2%;
 }
 
@@ -33,10 +32,12 @@ body{
     filter: drop-shadow(5px 5px 20px #c0c0c0);
     padding: 3%;
     width: 325px;
+    
 }
 .project-image-container{
     display: flex;
     justify-content: center; /* Center horizontally */
+    
 }
 
 .project img{
@@ -53,9 +54,14 @@ body{
 .project .bot{
     margin-left: 2%;    
 }
+
+.project-description{
+    margin-bottom: 50px;
+}
+
 .lastUpdated{
     position: absolute;
-    bottom: 0%;
+    bottom: 3%;
 }
 
 /* Media query for smaller screens */

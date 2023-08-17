@@ -17,6 +17,7 @@ function Project() {
     const [readme, setReadme] = useState([]);
     const [imgUrls, setImgUrls] = useState([])
     // add live links?, github links add tags, response?
+    const [projectUrls, setProjectUrls] = useState([]);
     const [apiResponse, setApiResponse] = useState('');
 
 
@@ -40,10 +41,16 @@ function Project() {
                 // Keeping only json of selected repos
                 const filteredRepos = data.filter(repo => selectedRepos.includes(repo.name));
                 setRepos(filteredRepos);
+                
     
                 // Store last updated dates of said repos
                 const updatedDates = filteredRepos.map(repo => repo.updated_at);
                 setLastUpdated(updatedDates);
+
+                // Store project urls of repos
+                const htmlUrls = filteredRepos.map(repo => repo.html_url);
+                setProjectUrls(htmlUrls);
+                
     
                 // Fetch and store README for each repo
                 const readmeContents = await Promise.all(
@@ -78,7 +85,7 @@ function Project() {
         fetchJson();
     }, []);
     
-
+    
     // console.log('repos', repos);
     // console.log('lastUpdated', lastUpdated);
     // console.log('readme', readme);
@@ -119,7 +126,7 @@ function Project() {
 
         } else {
             return repos.map((repo, index) => {
-                console.log('repo', repo);
+                // console.log('repo', repo);
                 // repo.name contains the name, I want to replace '# repo_name' with an empty string
                 let formattedReadme = readme[index];
                 if (readme[index] != null) {
@@ -140,8 +147,10 @@ function Project() {
                             <h1>{repo.name.charAt(0).toUpperCase() + repo.name.slice(1)}</h1>
                         </div>
                         <div className='bot'>
-                            <p dangerouslySetInnerHTML={{ __html: formattedReadme }} />
-                            <p className='lastUpdated'>Last updated: {lastUpdated[index]}</p>
+                            <p className='project-description' dangerouslySetInnerHTML={{ __html: formattedReadme }} />
+                            <a href={projectUrls[index]}>
+                                <p className='lastUpdated'>Last updated: {lastUpdated[index]}</p>
+                            </a>
                         </div>
                     </div>
                 );
