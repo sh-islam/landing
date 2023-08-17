@@ -16,15 +16,9 @@ function Project() {
     const [lastUpdated, setLastUpdated] = useState([]);
     const [readme, setReadme] = useState([]);
     const [imgUrls, setImgUrls] = useState([])
-    // add live links?, github links add tags, response?
     const [projectUrls, setProjectUrls] = useState([]);
     const [apiResponse, setApiResponse] = useState('');
 
-
-    // need to check for response.status = 403, if so create a state apiRateLimitExceeded
-    // if 404 then api not found
-    // or we could just save the response status, and console.log the error
-    // How do we save the response status in case we need it for other functions/variables?
     useEffect(() => {
         const fetchJson = async () => {
             try {
