@@ -1,6 +1,6 @@
 import React from 'react';
 import About from './components/about';
-import Project from './components/project';
+import Project from './components/test';
 
 
 function App() {
